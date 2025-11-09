@@ -25,7 +25,7 @@ TypeScriptコア（`packages/poml/index.ts`および`file.tsx`）は以下のパ
 ```mermaid
 flowchart LR
   A[(POMLファイル/React要素)] -->|PomlFile.react| B[Reader/Parser]
-  B -->|IR(JSONベース)| C[Writer<br/>(EnvironmentDispatcher)]
+  B -->|IR(JSONベース)| C[Writer & EnvironmentDispatcher]
   C -->|write()/writeMessages| D{出力先}
   D -->|RichContent| E[Markdown/テキスト]
   D -->|Speaker Mode| F[チャット用JSON]
