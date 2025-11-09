@@ -25,11 +25,11 @@ TypeScriptコア（`packages/poml/index.ts`および`file.tsx`）は以下のパ
 ```mermaid
 flowchart LR
   A[(POMLファイル/React要素)] -->|PomlFile.react| B[Reader/Parser]
-  B -->|IR(JSONベース)| C["Writer / EnvironmentDispatcher"]
-  C -->|write()/writeMessages| D{出力先}
-  D -->|RichContent| E[Markdown/テキスト]
-  D -->|Speaker Mode| F[チャット用JSON]
-  D -->|with SourceMap| G[VS Code診断]
+  B -->|IR| C[Writer]
+  C -->|write| D{出力先}
+  D -->|Rich| E[Markdown]
+  D -->|Speaker| F[チャットJSON]
+  D -->|SourceMap| G[VSCode診断]
 ```
 
 - **Parser**: Chevrotainと`@xml-tools`でXML ASTを生成し、`autoAddPoml`によりフリーテキストも自動ラップします。`<meta>`により`minVersion`チェックやコンポーネントの有効/無効を制御します。
